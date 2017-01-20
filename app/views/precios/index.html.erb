@@ -1,0 +1,83 @@
+<h1>Precios</h1>
+
+<%= link_to 'Nuevo', new_precio_path, :class => "btn btn-default btn-sm" %>
+<%= form_tag precios_path, :class => "navbar-form navbar-right", :role => "search", method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :texto, params[:texto], :class => "form-control", :placeholder => "Caballo o Cliente", :size => "60" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-danger btn-md" %>
+  </div>
+<% end %>
+
+<table class="table table-condensed table-bordered table-striped table-responsive table-hover">
+  <thead>
+    <tr>
+      <th><small>Caballo</small></th>
+      <th><small>Cliente</small></th>
+      <th><small>Importe</small></th>
+      <th><small>Moneda</small></th>
+      <th><small>Tipo Precio</small></th>
+      <th><small>Creación</small></th>
+      <th><small>Actualización</small></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if params[:texto].present? %>
+      <% if @caballos %>
+        <% @caballos.each do |cab| %>
+          <% @precios.where(caballo_id: cab.id).find_each(batch_size: 5) do |precio| %>
+            <tr>
+              <td><small><%= precio.caballo.nombre %></small></td>
+              <td><small><%= precio.cliente.nombre %></small></td>
+              <td align="right"><small><%= number_to_currency(precio.importe, :unit => precio.moneda.simbolo) %></small></td>
+              <td align="center"><small><%= precio.moneda.codigo %></small></td>
+              <td><small><%= precio.tipo.nombre %></small></td>
+              <td><small><%= precio.created_at.strftime("%d %b %Y") %></small></td>
+              <td><small><%= precio.updated_at.strftime("%d %b %Y") %></small></td>
+              <td><%= link_to '', precio, :class=>"btn btn-default btn-xs glyphicon glyphicon-eye-open" %></td>
+              <td><%= link_to '', edit_precio_path(precio), :class=>"btn btn-default btn-xs glyphicon glyphicon-pencil" %></td>
+              <td><%= link_to '', precio, method: :delete, data: { confirm: '¿Estás seguro(a)?' }, :class=>"btn btn-default btn-xs glyphicon glyphicon-remove" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if @clientes %>
+        <% @clientes.each do |cli| %>
+          <% @precios.where(cliente_id: cli.id).find_each(batch_size: 5) do |precio| %>
+            <tr>
+              <td><small><%= precio.caballo.nombre %></small></td>
+              <td><small><%= precio.cliente.nombre %></small></td>
+              <td align="right"><small><%= number_to_currency(precio.importe, :unit => precio.moneda.simbolo) %></small></td>
+              <td align="center"><small><%= precio.moneda.codigo %></small></td>
+              <td><small><%= precio.tipo.nombre %></small></td>
+              <td><small><%= precio.created_at.strftime("%d %b %Y") %></small></td>
+              <td><small><%= precio.updated_at.strftime("%d %b %Y") %></small></td>
+              <td><%= link_to '', precio, :class=>"btn btn-default btn-xs glyphicon glyphicon-eye-open" %></td>
+              <td><%= link_to '', edit_precio_path(precio), :class=>"btn btn-default btn-xs glyphicon glyphicon-pencil" %></td>
+              <td><%= link_to '', precio, method: :delete, data: { confirm: '¿Estás seguro(a)?' }, :class=>"btn btn-default btn-xs glyphicon glyphicon-remove" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% @precios.each do |precio| %>
+        <tr>
+          <td><small><%= precio.caballo.nombre %></small></td>
+          <td><small><%= precio.cliente.nombre %></small></td>
+          <!--<td><small><%= precio.cliente.paterno %></small></td>
+          <td><small><%= precio.cliente.materno %></small></td>-->
+          <td align="right"><small><%= number_to_currency(precio.importe, :unit => precio.moneda.simbolo) %></small></td>
+          <td align="center"><small><%= precio.moneda.codigo %></small></td>
+          <td align="center"><small><%= precio.tipo.nombre %></small></td>
+          <td align="center"><small><%= precio.created_at.strftime("%d %b %Y") %></small></td>
+          <td align="center"><small><%= precio.updated_at.strftime("%d %b %Y") %></small></td>
+          <td align="center"><%= link_to '', precio, :class=>"btn btn-default btn-xs glyphicon glyphicon-eye-open" %></td>
+          <td align="center"><%= link_to '', edit_precio_path(precio), :class=>"btn btn-default btn-xs glyphicon glyphicon-pencil" %></td>
+          <td align="center"><%= link_to '', precio, method: :delete, data: { confirm: '¿Estás seguro(a)?' }, :class=>"btn btn-default btn-xs glyphicon glyphicon-remove" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>

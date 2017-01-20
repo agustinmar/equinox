@@ -1,0 +1,67 @@
+<br>
+<p>
+  <%= link_to 'Editar', edit_caballo_path(@caballo), :class=>"btn btn-default btn-xs" %> |
+  <%= link_to 'Regresar', caballos_path, :class=>"btn btn-default btn-xs" %>
+</p>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Nombre:</strong>
+  <%= @caballo.nombre %>
+</p>
+
+<p>
+  <strong>Padre:</strong>
+  <%= @caballo.padre %>
+</p>
+
+<p>
+  <strong>Madre:</strong>
+  <%= @caballo.madre %>
+</p>
+
+<p>
+  <strong>Fecha Nac:</strong>
+  <%= @caballo.fechanac %>
+</p>
+
+<p>
+  <strong>Lugar Nac:</strong>
+  <%= @caballo.lugarnac %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @caballo.sexo %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @caballo.color %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @caballo.peso %>
+</p>
+
+<p>
+  <strong>Alzada:</strong>
+  <%= @caballo.alzada %>
+</p>
+
+<p>
+  <strong>Propietario:</strong>
+  <%= @caballo.propietario %>
+</p>
+
+<% if @caballo.convenio? %>
+  <p>
+    <strong>Convenio:</strong> Si
+  </p>
+<% end %>
+
+<% if @caballo.defuncion? %>
+  <p>
+    <strong>Defuncion:</strong> Si
+  </p>
+<% end %>

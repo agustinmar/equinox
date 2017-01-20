@@ -1,0 +1,37 @@
+<%= form_for(@precio) do |f| %>
+  <% if @precio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@precio.errors.count, "error") %> prohibited this precio from being saved:</h2>
+
+      <ul>
+      <% @precio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :caballo_id %><br>
+    <%= f.select :caballo_id, Caballo.all.order('nombre ASC').collect {|x| [x.nombre, x.id]}, :prompt=>"Seleccionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+    <%= f.select :cliente_id, Cliente.all.order('nombre ASC').collect {|x| [x.nombre, x.id]}, :prompt=>"Seleccionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :importe %><br>
+    <%= f.text_field :importe %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.select :tipo_id, Tipo.all.order('nombre ASC').collect {|x| [x.nombre, x.id]}, :prompt=>"Seleccionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :moneda %><br>
+    <%= f.select :moneda_id, Moneda.all.order('nombre ASC').collect {|x| [x.nombre, x.id]}, :prompt=>"Seleccionar" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar", :class=>"btn btn-success btn-sm"%>
+  </div>
+<% end %>

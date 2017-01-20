@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caballo_id: 1
+  cliente_id: 1
+  importe: 1.5
+  tipo: 1
+  moneda: 1
+
+two:
+  caballo_id: 1
+  cliente_id: 1
+  importe: 1.5
+  tipo: 1
+  moneda: 1

@@ -1,0 +1,66 @@
+<%= form_for(@caballo) do |f| %>
+  <% if @caballo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@caballo.errors.count, "error") %> prohibited this caballo from being saved:</h2>
+
+      <ul>
+      <% @caballo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class="table-condensed">
+    <tr>
+      <td><%= f.label :nombre, "Caballo" %></td>
+      <td><%= f.text_field :nombre %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :padre %></td>
+      <td><%= f.text_field :padre %></td>
+    </tr>
+      <td><%= f.label :madre %></td>
+      <td><%= f.text_field :madre %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :fechanac, "Fecha de nacimiento" %></td>
+      <td><%= f.date_select :fechanac %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :lugarnac, "Lugar de nacimiento" %></td>
+      <td><%= f.text_field :lugarnac %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :sexo %></td>
+      <td><%= f.text_field :sexo %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :color %></td>
+      <td><%= f.text_field :color %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :peso %></td>
+      <td><%= f.text_field :peso %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :alzada %></td>
+      <td><%= f.text_field :alzada %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :propietario %></td>
+      <td><%= f.text_field :propietario %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :convenio %></td>
+      <td><%= f.check_box :convenio %></td>
+    </tr>
+    </tr>
+      <td><%= f.label :defuncion %></td>
+      <td><%= f.check_box :defuncion %></td>
+    </tr>
+  </table>
+  <div class="actions">
+    <%= f.submit "Guardar", :class=>"btn btn-success btn-sm"%>
+  </div>
+
+<% end %>

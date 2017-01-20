@@ -1,0 +1,42 @@
+<br>
+<p>
+  <%= link_to 'Editar', edit_precio_path(@precio), :class=>"btn btn-default btn-xs" %> |
+  <%= link_to 'Regresar', precios_path, :class=>"btn btn-default btn-xs" %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caballo:</strong>
+  <%= @precio.caballo.nombre %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @precio.cliente.nombre %>
+</p>
+
+<p>
+  <strong>Importe:</strong>
+  <%= number_to_currency(@precio.importe, :unit => @precio.moneda.simbolo) %>
+</p>
+
+<p>
+  <strong>Moneda:</strong>
+  <%= @precio.moneda.codigo %> (<%= @precio.moneda.nombre %>)
+</p>
+
+<p>
+  <strong>Tipo de Precio:</strong>
+  <%= @precio.tipo.nombre %>
+</p>
+
+<p>
+  <strong>Creación:</strong>
+  <%= @precio.created_at.strftime("%d %b %Y") %>
+</p>
+
+<p>
+  <strong>Actualización:</strong>
+  <%= @precio.updated_at.strftime("%d %b %Y") %>
+</p>

@@ -1,0 +1,60 @@
+<h1>Caballos</h1>
+
+<%= link_to 'Nuevo', new_caballo_path, :class => "btn btn-default btn-md" %>
+<%= form_tag caballos_path, :class => "navbar-form navbar-right", :role => "search", method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :texto, params[:texto], :class => "form-control", :placeholder => "Nombre del Caballo", :size => "60" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-danger btn-md" %>
+  </div>
+<% end %>
+
+<table class="table table-condensed table-bordered table-striped table-responsive table-hover">
+  <thead>
+    <tr>
+      <th><small>Nombre</small></th>
+      <th><small>Padre</small></th>
+      <th><small>Madre</small></th>
+      <th><small>Fecha Nac</small></th>
+      <!--<th><small>Lugar</small></th>-->
+      <th><small>Sexo</small></th>
+      <!--<th><small>Color</small></th>
+      <th><small>Peso</small></th>
+      <th><small>Alzada</small></th>-->
+      <th><small>Propietario</small></th>
+      <th><small>Convenio</small></th>
+      <th><small>Defuncion</small></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caballos.each do |caballo| %>
+      <tr>
+        <td><small><%= caballo.nombre %></small></td>
+        <td><small><%= caballo.padre %></small></td>
+        <td><small><%= caballo.madre %></small></td>
+        <td align="center"><small><%= caballo.fechanac %></small></td>
+        <!--<td><small><%= caballo.lugarnac %></small></td>-->
+        <td align="center"><small><%= caballo.sexo %></small></td>
+        <!--<td class="text-center"><small><%= caballo.color %></small></td>
+        <td class="text-center"><small><%= caballo.peso %></small></td>
+        <td class="text-center"><small><%= caballo.alzada %></small></td>-->
+        <td><small><%= caballo.propietario %></small></td>
+        <td align="center">
+          <% if caballo.convenio? %>
+            <small>X</small>
+          <% end %>
+        </td>
+        <td align="center">
+          <% if caballo.defuncion? %>
+            <small>X</small>
+          <% end %>
+        </td>
+        <td align="center"><%= link_to '', caballo, :class=>"btn btn-default btn-xs glyphicon glyphicon-eye-open" %></td>
+        <td align="center"><%= link_to '', edit_caballo_path(caballo), :class=>"btn btn-default btn-xs glyphicon glyphicon-pencil" %></td>
+        <td align="center"><%= link_to '', caballo, method: :delete, data: { confirm: '¿Estás seguro(a)?' }, :class=>"btn btn-default btn-xs glyphicon glyphicon-remove" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

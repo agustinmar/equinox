@@ -1,0 +1,45 @@
+<h1>Clientes</h1>
+
+<%= link_to 'Nuevo', new_cliente_path, :class => "btn btn-default btn-sm" %>
+<%= form_tag clientes_path, :class => "navbar-form navbar-right", :role => "search", method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :texto, params[:texto], :class => "form-control", :placeholder => "Nombre del Cliente", :size => "60" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-danger btn-md" %>
+  </div>
+<% end %>
+
+<table class="table table-condensed table-bordered table-striped table-responsive table-hover">
+  <thead>
+    <tr>
+      <th><small>Nombre Completo</small></th>
+      <!--<th><small>Ap. Paterno</small></th>
+      <th><small>Ap. Materno</small></th>-->
+      <th><small>Telefono</small></th>
+      <th><small>Movil</small></th>
+      <th><small>Correo</small></th>
+      <th><small>Domicilio</small></th>
+      <th><small>Ciudad</small></th>
+      <th><small>País</small></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><small><%= cliente.nombre %></small></td>
+        <!--<td><small><%= cliente.paterno %></small></td>
+        <td><small><%= cliente.materno %></small></td>-->
+        <td><small><%= cliente.telefono %></small></td>
+        <td><small><%= cliente.movil %></small></td>
+        <td><small><%= cliente.correo %></small></td>
+        <td><small><%= cliente.domicilio %></small></td>
+        <td><small><%= cliente.ciudad %></small></td>
+        <td><small><%= cliente.pais %></small></td>
+        <td align="center"><%= link_to '', cliente, :class=>"btn btn-default btn-xs glyphicon glyphicon-eye-open" %></td>
+        <td align="center"><%= link_to '', edit_cliente_path(cliente), :class=>"btn btn-default btn-xs glyphicon glyphicon-pencil" %></td>
+        <td align="center"><%= link_to '', cliente, method: :delete, data: { confirm: '¿Estás seguro(a)?' }, :class=>"btn btn-default btn-xs glyphicon glyphicon-remove" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

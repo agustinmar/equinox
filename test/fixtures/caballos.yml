@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  padre: MyString
+  madre: MyString
+  fechanac: 2016-09-28
+  lugarnac: MyString
+  sexo: MyString
+  color: MyString
+  peso: 1.5
+  alzada: MyString
+  propietario: MyString
+  convenio: false
+  defuncion: false
+
+two:
+  nombre: MyString
+  padre: MyString
+  madre: MyString
+  fechanac: 2016-09-28
+  lugarnac: MyString
+  sexo: MyString
+  color: MyString
+  peso: 1.5
+  alzada: MyString
+  propietario: MyString
+  convenio: false
+  defuncion: false

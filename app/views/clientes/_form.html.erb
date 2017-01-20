@@ -1,0 +1,54 @@
+<%= form_for(@cliente) do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table-condensed"> 
+    <tr>
+      <td><%= f.label :nombre, "Nombre" %></td>
+      <td><%= f.text_field :nombre %></td>
+    </tr>
+    <!--<tr>
+      <td><%= f.label :paterno, "Ap. Paterno" %></td>
+      <td><%= f.text_field :paterno %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :materno, "Ap. Materno" %></td>
+      <td><%= f.text_field :materno %></td>
+    </tr>-->
+    <tr>
+      <td><%= f.label :telefono, "Teléfono" %></td>
+      <td><%= f.telephone_field :telefono %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :movil, "Móvil" %></td>
+      <td><%= f.text_field :movil %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :correo, "Correo" %></td>
+      <td><%= f.email_field :correo %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :domicilio, "Domicilio" %></td>
+      <td><%= f.text_field :domicilio %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :ciudad, "Ciudad" %></td>
+      <td><%= f.text_field :ciudad %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :pais, "País" %></td>
+      <td><%= f.text_field :pais %></td>
+    </tr>   
+  </table>
+  <div class="actions">
+    <%= f.submit "Guardar", :class=>"btn btn-success btn-sm"%>
+  </div>
+<% end %>

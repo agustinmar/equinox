@@ -1,0 +1,52 @@
+<br>
+<p>
+  <%= link_to 'Editar', edit_cliente_path(@cliente), :class=>"btn btn-default btn-xs" %> |
+  <%= link_to 'Regresar', clientes_path, :class=>"btn btn-default btn-xs" %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cliente.nombre %>
+</p>
+
+<!--<p>
+  <strong>Ap. Paterno:</strong>
+  <%= @cliente.paterno %>
+</p>
+
+<p>
+  <strong>Ap. Materno:</strong>
+  <%= @cliente.materno %>
+</p>-->
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @cliente.telefono %>
+</p>
+
+<p>
+  <strong>Movil:</strong>
+  <%= @cliente.movil %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @cliente.correo %>
+</p>
+
+<p>
+  <strong>Domicilio:</strong>
+  <%= @cliente.domicilio %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @cliente.ciudad %>
+</p>
+
+<p>
+  <strong>Pais:</strong>
+  <%= @cliente.pais %>
+</p>

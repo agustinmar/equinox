@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails equinox: development" uuid="1f4f7d3c-bc84-48c2-b0bb-7964cb643707">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/equinox_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails equinox: test" uuid="c430c68b-a4d2-4313-bacf-07c0102f8690">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/equinox_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails equinox: production" uuid="381a436d-aa3d-4ee5-b5cc-b6f9801455b7">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/equinox_production</jdbc-url>
+    </data-source>
+  </component>
+</project>
