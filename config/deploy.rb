@@ -1,3 +1,4 @@
+require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
@@ -12,7 +13,7 @@ require 'mina/git'
 set :application_name, 'Equinox'
 set :user, 'equinox@hipicolasilla.com'
 set :domain, 'rho.interaxes.org'
-set :deploy_to, '/current'
+set :deploy_to, '/current/hipicolasilla.com'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 set :branch, 'master'
 
