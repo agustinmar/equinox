@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock "3.9.0"
 
-set :application, "Equinox"
+set :application, "equinox"
 set :repo_url, "https://github.com/agustinmar/equinox.git"
 
 # Default branch is :master
