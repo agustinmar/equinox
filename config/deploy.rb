@@ -2,13 +2,17 @@
 lock "3.9.0"
 
 set :application, "equinox"
-set :repo_url, "git@github.com:agustinmar/equinox.git"
+set :scm, :git
+set :repo_url, "https://github.com/agustinmar/equinox.git"
+set :stages, ["staging", "production"]
+set :default_stage, "staging"
+set :user, "equinox@hipicolasilla.com"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/current"
+# set :deploy_to, "/current"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
