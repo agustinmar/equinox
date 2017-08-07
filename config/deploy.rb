@@ -23,6 +23,10 @@ set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 set :branch, 'master'
 
+# Fix https://github.com/mina-deploy/mina/issues/476
+task :console => :environment do
+end
+
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
