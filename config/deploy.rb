@@ -18,19 +18,19 @@ set :rails_env, 'production'
 set :application_name, 'equinox'
 set :user, 'equinox@hipicolasilla.com'
 set :domain, 'rho.interaxes.org'
-set :port, '2022'
 set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 set :branch, 'master'
 
 # Optional settings:
-#   set :user, 'foobar'          # Username in the server to SSH to.
-#   set :port, '30000'           # SSH port number.
-#   set :forward_agent, true     # SSH forward_agent.
+#   set :user, 'foobar'      # Username in the server to SSH to.
+set :port, '2022'            # SSH port number.
+set :forward_agent, true     # SSH forward_agent.
+
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
-set :shared_dirs, fetch(:shared_dirs, []).push('current')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+# set :shared_dirs, fetch(:shared_dirs, []).push('current')
+# set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
