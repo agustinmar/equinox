@@ -2,10 +2,7 @@
  require 'mina/rails'
  require 'mina/git'
  require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
- require 'rbconfig'
-
-set :term_mode, :exec  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
-# require 'mina/rvm'    # for rvm support. (https://rvm.io)
+ # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -14,6 +11,7 @@ set :term_mode, :exec  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :rails_env, 'production'
+set :term_mode, :exec  if Process.respond_to?(:fork)
 
 set :application_name, 'equinox'
 set :user, 'equinox@hipicolasilla.com'
