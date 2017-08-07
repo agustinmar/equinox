@@ -1,7 +1,7 @@
-require 'mina/bundler'
-require 'mina/rails'
-require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+ require 'mina/bundler'
+ require 'mina/rails'
+ require 'mina/git'
+ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # Basic settings:
@@ -10,11 +10,13 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+set :rails_env, 'production'
+
 set :application_name, 'equinox'
 set :user, 'equinox@hipicolasilla.com'
 set :domain, 'rho.interaxes.org'
 set :port, '2022'
-set :deploy_to, '/current'
+set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 set :branch, 'master'
 
@@ -32,7 +34,7 @@ set :branch, 'master'
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+  invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
