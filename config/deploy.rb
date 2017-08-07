@@ -38,7 +38,7 @@ task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   invoke :'rbenv:load'
-  command %[ export PATH="$PATH:$HOME/.rbenv/shims" ]
+  #command %[ export PATH="$PATH:$HOME/.rbenv/shims" ]
 
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
@@ -64,12 +64,12 @@ task :deploy do
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
-    on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
-    end
+    #on :launch do
+     # in_path(fetch(:current_path)) do
+      #  command %{mkdir -p tmp/}
+        #command %{touch tmp/restart.txt}
+      #end
+    #end
   end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
