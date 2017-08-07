@@ -7,7 +7,7 @@
 # require 'rbconfig'
 # set :term_mode, :exec  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
 
-set :rails_env, 'production'
+# set :rails_env, 'production'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
