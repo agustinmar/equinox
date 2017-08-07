@@ -2,6 +2,9 @@
  require 'mina/rails'
  require 'mina/git'
  require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+ require 'rbconfig'
+
+set :term_mode, :exec  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # Basic settings:
@@ -19,8 +22,6 @@ set :port, '2022'
 set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 set :branch, 'master'
-
-set :term_mode, :exec  if Process.respond_to?(:fork)
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
