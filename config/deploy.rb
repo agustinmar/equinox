@@ -2,7 +2,8 @@
 lock "3.9.0"
 
 set :application, "equinox"
-# set :scm, :git
+set :domain, "rho.interaxes.org"
+set :scm, :git
 set :repo_url, "https://github.com/agustinmar/equinox.git"
 set :user, "equinox@hipicolasilla.com"
 
