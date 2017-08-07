@@ -47,4 +47,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass'
 
 # Gema para hacer un Deploy a la aplicación
-gem 'mina'
+gem 'mina', '~> 1.0.6'
