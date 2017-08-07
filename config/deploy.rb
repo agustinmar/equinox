@@ -20,6 +20,8 @@ set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 set :branch, 'master'
 
+set :term_mode, :exec  if Process.respond_to?(:fork)
+
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
