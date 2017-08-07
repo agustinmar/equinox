@@ -2,10 +2,10 @@
  require 'mina/rails'
  require 'mina/git'
  require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
- # require 'mina/rvm'    # for rvm support. (https://rvm.io)
+# require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
-require 'rbconfig'
-set :term_mode, :exec  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
+# require 'rbconfig'
+# set :term_mode, :exec  if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
 
 set :rails_env, 'production'
 
@@ -38,6 +38,7 @@ task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   invoke :'rbenv:load'
+  command %[ export PATH="$PATH:$HOME/.rbenv/shims" ]
 
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
