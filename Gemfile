@@ -29,13 +29,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-group :development do
-  	gem 'capistrano'
-  	gem 'capistrano-rails'
-	gem 'capistrano-bundler'
-end
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -46,4 +39,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass'
 
 # Gema para hacer un Deploy a la aplicación
-# gem 'mina', '~> 1.0.6'
+gem 'mina'
