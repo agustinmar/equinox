@@ -21,7 +21,6 @@ set :domain, 'rho.interaxes.org'
 # set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
 # set :branch, 'master'
-set :rbenv_ruby
 
 # Optional settings:
 # set :user, 'foobar'      # Username in the server to SSH to.
