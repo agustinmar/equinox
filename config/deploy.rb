@@ -1,7 +1,7 @@
- require 'mina/bundler'
- require 'mina/rails'
- require 'mina/git'
- require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+# require 'mina/bundler'
+# require 'mina/rails'
+# require 'mina/git'
+# require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # require 'rbconfig'
@@ -18,14 +18,15 @@
 set :application_name, 'equinox'
 set :user, 'equinox@hipicolasilla.com'
 set :domain, 'rho.interaxes.org'
-set :deploy_to, '#{deploy_to}/#{current_path}'
+# set :deploy_to, '#{deploy_to}/#{current_path}'
 set :repository, 'https://github.com/agustinmar/equinox.git'
-set :branch, 'master'
+# set :branch, 'master'
+set :rbenv_ruby
 
 # Optional settings:
-#   set :user, 'foobar'      # Username in the server to SSH to.
+# set :user, 'foobar'      # Username in the server to SSH to.
 set :port, '2022'            # SSH port number.
-set :forward_agent, true     # SSH forward_agent.
+# set :forward_agent, true     # SSH forward_agent.
 
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
@@ -34,47 +35,47 @@ set :forward_agent, true     # SSH forward_agent.
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
-task :environment do
+# task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
-  invoke :'rbenv:load'
+  # invoke :'rbenv:load'
   #command %[ export PATH="$PATH:$HOME/.rbenv/shims" ]
 
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
-end
+# end
 
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
-task :setup do
+# task :setup do
   # command %{rbenv install 2.3.0}
-end
+# end
 
-desc "Deploys the current version to the server."
-task :deploy do
+# desc "Deploys the current version to the server."
+# task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
-  deploy do
+  # deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
-    invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
-    invoke :'bundle:install'
-    invoke :'rails:db_migrate'
-    invoke :'rails:assets_precompile'
-    invoke :'deploy:cleanup'
+    # invoke :'git:clone'
+    # invoke :'deploy:link_shared_paths'
+    # invoke :'bundle:install'
+    # invoke :'rails:db_migrate'
+    # invoke :'rails:assets_precompile'
+    # invoke :'deploy:cleanup'
 
-    on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
-    end
-  end
+    # on :launch do
+      # in_path(fetch(:current_path)) do
+        # command %{mkdir -p tmp/}
+        # command %{touch tmp/restart.txt}
+      # end
+    # end
+  # end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
   # run(:local){ say 'done' }
-end
+# end
 
 # For help in making your deploy script, see the Mina documentation:
 #
