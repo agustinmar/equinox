@@ -50,7 +50,7 @@ gem 'yaml_db'
 #en un archivo YAML en config/application.yml y carga sus valores en ENV.
 gem "figaro"
 
-#gem 'readmorejs-rails', '~> 0.0.12'
+gem 'rake'
 
 group :development, :test do
 	# Use mysql as the database for Active Record
