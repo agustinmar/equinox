@@ -39,4 +39,28 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass'
 
 # Gema para hacer un Deploy a la aplicación
-gem 'mina'
+# gem 'mina'
+
+#Gema para convertir la base de datos a un archivo data.yml y subirlo al servidor
+#rake db:data:dump   ->   Volcar la base de datos a db/data.yml
+#rake db:data:load   ->   Cargar los contenidos de db/data.yml en la base de datos
+gem 'yaml_db'
+
+#Figaro permite almacenar información confidencial (cuentas contraseñas)
+#en un archivo YAML en config/application.yml y carga sus valores en ENV.
+gem "figaro"
+
+#gem 'readmorejs-rails', '~> 0.0.12'
+
+group :development, :test do
+	# Use mysql as the database for Active Record
+	gem 'mysql2'
+	# Para pruebas de envio de correo desde ambiente de pruebas
+	gem 'letter_opener'
+end
+
+group :production do
+	# Use Postgres as the database for Active Record Production
+	gem 'pg'
+	gem 'rails_12factor'
+end
