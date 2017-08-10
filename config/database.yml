@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: equinox_production
-  username: equinox
+  database: equinox1_production
+  username: equinox1
   password: <%= ENV['EQUINOX_DATABASE_PASSWORD'] %>
