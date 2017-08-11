@@ -38,9 +38,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # Frameworks CSS de Bootstrap
 gem 'bootstrap-sass'
 
-# Gema para hacer un Deploy a la aplicación
-# gem 'mina'
-
 #Gema para convertir la base de datos a un archivo data.yml y subirlo al servidor
 #rake db:data:dump   ->   Volcar la base de datos a db/data.yml
 #rake db:data:load   ->   Cargar los contenidos de db/data.yml en la base de datos
@@ -49,8 +46,6 @@ gem 'yaml_db'
 #Figaro permite almacenar información confidencial (cuentas contraseñas)
 #en un archivo YAML en config/application.yml y carga sus valores en ENV.
 gem "figaro"
-
-gem 'rake'
 
 group :development, :test do
 	# Use mysql as the database for Active Record
